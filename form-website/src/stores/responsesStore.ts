@@ -32,6 +32,9 @@ export const useResponsesStore = defineStore("responses", () => {
     difficulty,
     avoidPatterns,
     avoidStreaks,
+    ageGroup,
+    education,
+    statisticsExperience,
     page1Complete,
     page2Complete
   };
