@@ -48,7 +48,9 @@ function nextPage(): void {
     I have read the information above and agree to participate.
   </label>
   <br><br>
-  <Button :disabled="!agreed" @click="nextPage"/>
+  <Button :disabled="!agreed" @click="nextPage">
+    Next ->
+  </Button>
 </template>
 
 <style lang="scss" scoped>
