@@ -15,7 +15,7 @@ const emit = defineEmits<{
       class="base-button"
       @click="emit('click')"
     >
-      Next ->
+      <slot></slot>
     </button>
   </div>
 </template>
