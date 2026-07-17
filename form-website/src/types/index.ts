@@ -5,3 +5,8 @@ export interface Flip {
   value: CoinSide;
   elapsedMs: number;
 }
+
+export interface QuestionOption {
+  label: string;
+  value: string;
+}
