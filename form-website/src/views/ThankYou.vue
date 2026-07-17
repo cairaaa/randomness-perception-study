@@ -1,0 +1,3 @@
+<template>
+  <p>Thank you for participating!</p>
+</template>
