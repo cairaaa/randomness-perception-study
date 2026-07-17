@@ -13,6 +13,7 @@ function nextPage(): void {
 
 <template>
   <div class="text-box">
+    <p class="page-header">Page 1 of 4</p>
     <h1 class="text-box-title">Human Randomness Perception Study</h1>
     <p>
       Thank you for considering participating in this study. This project investigates

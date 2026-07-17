@@ -13,6 +13,7 @@ function nextPage(): void {
 </script>
 
 <template>
+  <p class="page-header">Page 3 of 4</p>
   <h2>About Your Sequence</h2>
   <div class="questions">
     <Question

@@ -25,6 +25,7 @@ function nextPage(): void {
 </script>
 
 <template>
+  <p class="page-header">Page 2 of 4</p>
   <div class=".text-box">
     <p>
       Imagine you flipped a fair coin 50 times.
