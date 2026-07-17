@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { useSurveyStore } from "@/stores/surveyStore.ts";
 import Button from "../components/Button.vue";
 
 const agreed = ref(false);
 const router = useRouter();
+const surveyStore = useSurveyStore();
 
 function nextPage(): void {
+  surveyStore.startSurvey();
   router.push("/coin-flip");
 }
 </script>

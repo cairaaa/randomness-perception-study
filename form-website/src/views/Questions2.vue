@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import { useResponsesStore } from "@/stores/responsesStore";
+import { useSurveyStore } from "@/stores/surveyStore";
 import Button from "@/components/Button.vue";
 import Question from "@/components/Question.vue";
 
 const router = useRouter();
 const responsesStore = useResponsesStore();
+const surveyStore = useSurveyStore();
 
 function nextPage(): void {
+  surveyStore.completeSurvey();
   router.push("/thank-you");
 }
 </script>
@@ -20,7 +23,6 @@ function nextPage(): void {
       v-model="responsesStore.ageGroup"
       question="What is your age group?"
       :options="[
-        { label: 'Under 18', value: 'under_18' },
         { label: '18-21', value: '18_21' },
         { label: '22-25', value: '22_25' },
         { label: '26-29', value: '26_29' },
