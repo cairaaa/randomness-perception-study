@@ -12,18 +12,6 @@ defineProps<Props>();
 const emit = defineEmits<{
   (e: "update:modelValue", value: string): void;
 }>();
-
-// import { watch } from "vue";
-// import { useResponsesStore } from "@/stores/responsesStore";
-
-// const responsesStore = useResponsesStore();
-
-// watch(
-//   responsesStore,
-//   () => {
-//     console.log(responsesStore.$state);
-//   }
-// );
 </script>
 
 <template>
