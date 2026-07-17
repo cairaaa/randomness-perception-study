@@ -7,7 +7,7 @@ const agreed = ref(false);
 const router = useRouter();
 
 function nextPage(): void {
-  router.push("/survey/randomness");
+  router.push("/coin-flip");
 }
 </script>
 
