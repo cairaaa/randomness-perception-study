@@ -22,7 +22,7 @@ router.beforeEach((to) => {
   const requiredStep = to.meta.step as number;
   if (
     to.path !== "/" &&
-    surveyStore.participantId === null
+    surveyStore.startedAt === null
   ) {
     return "/";
   }

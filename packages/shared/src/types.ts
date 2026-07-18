@@ -13,7 +13,6 @@ export interface QuestionOption {
 
 export interface SurveySubmission {
   survey: {
-    participantId: string | null;
     surveyVersion: string;
     startedAt: number | null;
     completedAt: number | null;

@@ -15,7 +15,6 @@ const surveyStore = useSurveyStore();
 async function submitSurvey(): Promise<void> {
   const submission: SurveySubmission = {
     survey: {
-      participantId: surveyStore.participantId,
       surveyVersion: surveyStore.surveyVersion,
       startedAt: surveyStore.startedAt,
       completedAt: surveyStore.completedAt
