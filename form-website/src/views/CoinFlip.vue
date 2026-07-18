@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
-import { useCoinFlipStore } from "@/stores/coinFlipStore.ts";
-import { useSurveyStore } from "@/stores/surveyStore.ts";
+import { useCoinFlipStore } from "@/stores/coinFlipStore";
+import { useSurveyStore } from "@/stores/surveyStore";
 import Button from "@/components/Button.vue";
 
 const router = useRouter();

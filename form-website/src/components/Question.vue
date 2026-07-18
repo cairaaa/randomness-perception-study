@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { QuestionOption } from "@/types";
+import type { QuestionOption } from "@repo/shared/types";
 
 interface Props {
   modelValue: string | null;

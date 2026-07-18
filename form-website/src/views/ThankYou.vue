@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { useSurveyStore } from "@/stores/surveyStore.ts";
+import { useSurveyStore } from "@/stores/surveyStore";
 
 const surveyStore = useSurveyStore();
 
