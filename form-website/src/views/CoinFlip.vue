@@ -89,6 +89,14 @@ function nextPage(): void {
   .progress {
     font-size: 20px;
   }
+
+  .sequence {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    text-align: center;
+  }
 }
 
 .coin-buttons {
@@ -122,6 +130,33 @@ function nextPage(): void {
 
     &:active {
       background-color: rgb(150, 150, 204);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .coin-buttons {
+    button {
+      width: 10rem;
+      height: 10rem;
+      padding: 2rem;
+      font-size: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .coin-buttons {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    button {
+      width: 12rem;
+      height: 12rem;
+      padding: 3.5rem;
+      font-size: 32px;
     }
   }
 }
