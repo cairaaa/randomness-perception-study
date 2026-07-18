@@ -9,11 +9,11 @@ const ORIGIN = process.env.ORIGIN || "http://localhost:5173";
 const PORT = Number(process.env.PORT) || 3000;
 
 const fastify = Fastify({
-  logger: true,
+  logger: true
 });
 
 await fastify.register(cors, {
-  origin: `${ORIGIN}`,
+  origin: `${ORIGIN}`
 });
 
 fastify.post<{
@@ -24,10 +24,10 @@ fastify.post<{
 
   return {
     success: true,
-    message: "Received successfully",
+    message: "Received successfully"
   };
 });
 
 await fastify.listen({
-  port: PORT,
+  port: PORT
 });
