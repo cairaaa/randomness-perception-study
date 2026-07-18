@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import type { CoinSide, Flip } from "@/types";
+import type { CoinSide, Flip } from "@repo/shared/types";
 
 export const useCoinFlipStore = defineStore("coinFlip", () => {
   const flips = ref<Flip[]>([]);
