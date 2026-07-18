@@ -1,16 +1,62 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
+import { useCoinFlipStore } from "@/stores/coinFlipStore";
 import { useResponsesStore } from "@/stores/responsesStore";
 import { useSurveyStore } from "@/stores/surveyStore";
 import Button from "@/components/Button.vue";
 import Question from "@/components/Question.vue";
+import type { SurveySubmission } from "@repo/shared/types";
 
 const router = useRouter();
+const coinFlipStore = useCoinFlipStore();
 const responsesStore = useResponsesStore();
 const surveyStore = useSurveyStore();
 
-function nextPage(): void {
+async function submitSurvey(): Promise<void> {
+  const submission: SurveySubmission = {
+    survey: {
+      participantId: surveyStore.participantId,
+      surveyVersion: surveyStore.surveyVersion,
+      startedAt: surveyStore.startedAt,
+      completedAt: surveyStore.completedAt
+    },
+
+    responses: {
+      confidence: responsesStore.confidence,
+      difficulty: responsesStore.difficulty,
+      avoidPatterns: responsesStore.avoidPatterns,
+      avoidStreaks: responsesStore.avoidStreaks,
+      ageGroup: responsesStore.ageGroup,
+      education: responsesStore.education,
+      statisticsExperience: responsesStore.statisticsExperience
+    },
+
+    coinFlip: {
+      flips: coinFlipStore.flips,
+      startTime: coinFlipStore.startTime
+    }
+  };
+
+  try {
+    const response = await fetch("http://localhost:3000/api", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(submission)
+    });
+    if (!response.ok) {
+      throw new Error("Failed to submit survey");
+    }
+    console.log(await response.json());
+  } catch (error) {
+    console.error("Survey submission failed:", error);
+  }
+}
+
+async function nextPage(): Promise<void> {
   surveyStore.completeSurvey();
+  await submitSurvey();
   surveyStore.setStep(4);
   router.push("/thank-you");
 }
