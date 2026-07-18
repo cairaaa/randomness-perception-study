@@ -1,4 +1,5 @@
 import eslint from "@eslint/js";
+import globals from "globals";
 import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 import stylistic from "@stylistic/eslint-plugin";
@@ -32,6 +33,10 @@ export default defineConfig([
         ecmaVersion: "latest",
         sourceType: "module",
         extraFileExtensions: [".vue"]
+      },
+      globals: {
+        ...globals.node,
+        ...globals.browser
       }
     },
     plugins: {
