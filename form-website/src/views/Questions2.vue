@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useCoinFlipStore } from "@/stores/coinFlipStore";
 import { useResponsesStore } from "@/stores/responsesStore";
@@ -12,7 +13,14 @@ const coinFlipStore = useCoinFlipStore();
 const responsesStore = useResponsesStore();
 const surveyStore = useSurveyStore();
 
+const submitting = ref(false);
+
 async function submitSurvey(): Promise<void> {
+  if (submitting.value) {
+    return;
+  }
+  submitting.value = true;
+
   const submission: SurveySubmission = {
     survey: {
       surveyVersion: surveyStore.surveyVersion,
@@ -105,8 +113,8 @@ async function nextPage(): Promise<void> {
         { label: 'Other', value: 'other' }
       ]"
     />
-    <Button :disabled="!responsesStore.page2Complete" @click="nextPage">
-      Submit
+    <Button :disabled="!responsesStore.page2Complete || submitting" @click="nextPage">
+      {{ submitting ? "Submitting survey..." : "Submit" }}
     </Button>
   </div>
 </template>
