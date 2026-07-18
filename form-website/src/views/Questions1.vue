@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import { useResponsesStore } from "@/stores/responsesStore";
+import { useSurveyStore } from "@/stores/surveyStore.ts";
 import Button from "@/components/Button.vue";
 import Question from "@/components/Question.vue";
 
 const router = useRouter();
 const responsesStore = useResponsesStore();
+const surveyStore = useSurveyStore();
 
 function nextPage(): void {
+  surveyStore.setStep(3);
   router.push("/questions-2");
 }
 </script>

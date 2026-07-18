@@ -10,6 +10,7 @@ const surveyStore = useSurveyStore();
 
 function nextPage(): void {
   surveyStore.startSurvey();
+  surveyStore.setStep(1);
   router.push("/coin-flip");
 }
 </script>

@@ -11,6 +11,7 @@ const surveyStore = useSurveyStore();
 
 function nextPage(): void {
   surveyStore.completeSurvey();
+  surveyStore.setStep(4);
   router.push("/thank-you");
 }
 </script>

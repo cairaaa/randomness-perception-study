@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { useSurveyStore } from "@/stores/surveyStore";
 import Welcome from "@/views/Welcome.vue";
 import CoinFlip from "@/views/CoinFlip.vue";
 import Questions1 from "@/views/Questions1.vue";
@@ -14,6 +15,24 @@ const router = createRouter({
     { path: "/questions-2", component: Questions2 },
     { path: "/thank-you", component: ThankYou }
   ]
+});
+
+router.beforeEach((to) => {
+  const surveyStore = useSurveyStore();
+  const requiredStep = to.meta.step as number;
+  if (
+    to.path !== "/" &&
+    surveyStore.participantId === null
+  ) {
+    return "/";
+  }
+  if (
+    requiredStep !== undefined &&
+    requiredStep > surveyStore.currentStep
+  ) {
+    return "/";
+  }
+  return true;
 });
 
 router.afterEach(() => {

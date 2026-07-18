@@ -6,7 +6,7 @@ export const useSurveyStore = defineStore("survey", () => {
   const surveyVersion = ref<string>("1.0.0");
   const startedAt = ref<number | null>(null);
   const completedAt = ref<number | null>(null);
-
+  const currentStep = ref(0);
   
   function startSurvey(): void {
     participantId.value = crypto.randomUUID();
@@ -15,7 +15,17 @@ export const useSurveyStore = defineStore("survey", () => {
 
   function completeSurvey(): void {
     completedAt.value = Date.now();
-    console.log(participantId, surveyVersion, startedAt, completedAt);
+  }
+
+  function setStep(step: number): void {
+    currentStep.value = step;
+  }
+
+  function reset(): void {
+    participantId.value = null;
+    startedAt.value = null;
+    completedAt.value = null;
+    currentStep.value = 0;
   }
 
   return {
@@ -23,7 +33,10 @@ export const useSurveyStore = defineStore("survey", () => {
     surveyVersion,
     startedAt,
     completedAt,
+    currentStep,
     startSurvey,
-    completeSurvey
+    completeSurvey,
+    setStep,
+    reset
   };
 });

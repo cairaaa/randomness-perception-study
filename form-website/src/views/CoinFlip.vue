@@ -2,10 +2,12 @@
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useCoinFlipStore } from "@/stores/coinFlipStore.ts";
+import { useSurveyStore } from "@/stores/surveyStore.ts";
 import Button from "@/components/Button.vue";
 
 const router = useRouter();
 const coinFlipStore = useCoinFlipStore();
+const surveyStore = useSurveyStore();
 
 const started = ref(false);
 const flipNumber = computed(() => coinFlipStore.flips.length + 1);
@@ -20,6 +22,7 @@ function startActivity(): void {
 }
 
 function nextPage(): void {
+  surveyStore.setStep(2);
   router.push("/questions-1");
 }
 </script>
