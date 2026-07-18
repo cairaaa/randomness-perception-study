@@ -13,6 +13,13 @@ export default defineConfig([
     plugins: {
       "@stylistic": stylistic
     },
+    {
+      "languageOptions": {
+        "parserOptions": {
+          "project": "./tsconfig.json"
+        }
+      }
+    },
     rules: {
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/explicit-function-return-type": "error",
