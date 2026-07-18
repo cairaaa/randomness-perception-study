@@ -38,11 +38,26 @@ button {
   font-family: "Nunito", sans-serif;
   font-size: 18px;
   text-align: left;
+  align-items: flex-start;
   cursor: pointer;
   width: 100%;
   display: flex;
   gap: 0.5rem;
-  align-items: center;
+
+  span:last-child {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: break-word;
+    text-align: left;
+  }
+}
+
+.question-box {
+  border: 2px solid lightgray;
+  border-radius: 32px;
+  padding: 1.5rem;
+  background-color: #f8f8f8;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .question {
@@ -52,9 +67,8 @@ button {
 .question-buttons {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   gap: 0.5rem;
-  width: max-content;
+  width: 100%;
 }
 
 .circle {
