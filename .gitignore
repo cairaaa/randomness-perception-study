@@ -12,6 +12,7 @@ private/
 **/*.quarto_ipynb
 **/*.quarto_ipynb*
 paper/*.html
+surveys.csv
 
 node_modules/
 
