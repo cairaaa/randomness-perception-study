@@ -39,6 +39,10 @@ select = [
     "SIM",
     "UP"
 ]
+ignore = [
+    "SIM102",
+    "SIM108"
+]
 
 [tool.ruff.format]
 quote-style = "double"
