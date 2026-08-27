@@ -63,7 +63,6 @@ async def generate_openai_sequence(
 async def generate_one_anthropic(semaphore: asyncio.Semaphore) -> str:
     async with semaphore:
         response = await anthropic_client.messages.create(
-            # model="claude-sonnet-5",
             model="claude-opus-5",
             max_tokens=1024,
             temperature=1.0,
@@ -110,5 +109,4 @@ async def generate_gemini_sequence(
     semaphore = asyncio.Semaphore(max_concurrent)
     tasks = [generate_one_gemini(semaphore) for _ in range(num)]
     results = await asyncio.gather(*tasks, return_exceptions=True)
-    print(results)
     return validate_sequences(results)
